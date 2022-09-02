@@ -4,6 +4,7 @@ describe('Testing translateToMorse', () => {
   it('single letter returns corresponding symbol', ()=> {
     // Arrange
       let letter;
+      let translation;
     // Act
       letter = "a";
       translation= translateToMorse(letter);
@@ -13,6 +14,7 @@ describe('Testing translateToMorse', () => {
   it('word returns corresponding symbols', ()=> {
     // Arrange
       let word;
+      let translation;
     // Act
       word = "cat";
       translation= translateToMorse(word);
@@ -22,6 +24,7 @@ describe('Testing translateToMorse', () => {
   it('sentence returns corresponding symbols', ()=> {
     // Arrange
       let sentence;
+      let translation;
     // Act
       sentence = "the quick brown fox jumps over the lazy dog";
       translation= translateToMorse(sentence);
@@ -31,15 +34,17 @@ describe('Testing translateToMorse', () => {
   it('returns symbol for both upper and lower cases', ()=> {
     // Arrange
       let letter;
+      let translation;
     // Act
-      word = "A";
+      letter = "A";
       translation= translateToMorse(letter);
     // Assert
     expect(translation).toBe(".-");
   })
   it('returns punctuated sentence fully translated', ()=> {
     // Arrange
-      let letter;
+    let translation;
+      let word;
     // Act
       word = "a new little dog.";
       translation= translateToMorse(letter);
