@@ -1,8 +1,11 @@
 const latin =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",".",",","!","?"];
 const morse=[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--..",".-.-.-","--..--","-.-.--","..--.."]
 
-export const translateToMorse =(message)=>{
-    const wordArray = message.split(' ');
+const getTranslation = document.querySelector('.getTranslation');
+const theTranslation = document.querySelector('.theTranslation');
+
+const translateToMorse =()=>{
+    const wordArray = document.getElementById("message").value.split(' ');
     const sentenceArray =[];
     wordArray.forEach((word) => {
         const letterArray = word.split('');
@@ -16,5 +19,7 @@ export const translateToMorse =(message)=>{
             }
         })
     });
-    return sentenceArray.join('');
+    theTranslation.innerHTML = sentenceArray.join('');
 }
+
+getTranslation.addEventListener("click", translateToMorse);
