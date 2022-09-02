@@ -2,11 +2,15 @@ const latin =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q
 const morse=[".-","-...","-.-.",".--",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
 
 export const translateToMorse =(message)=>{
-    let wordArray = message.split(' ');
+    const wordArray = message.split(' ');
     wordArray.forEach((word) => {
-        let letterArray = word.split('');
+        const letterArray = word.split('');
+        if(sentenceArray.length >0){
+            sentenceArray.push('/ ');
+        }
         letterArray.forEach((letter) =>{
-            letter.toUpperClass()
+            sentenceArray.push(morse[latin.indexOf(letter.toUpperClass())]);
+            sentenceArray.push(' ');
         })
     });
 
