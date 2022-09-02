@@ -27,7 +27,7 @@ describe('Testing translateToMorse', () => {
       translation= translateToMorse(sentence);
     // Assert
     expect(translation).toBe("- .... . / --.- ..- .. -.-. -.- / -... .-. --- .-- -. / ..-. --- -..- / .--- ..- -- .--. ... / --- ...- . .-. / - .... . / .-.. .- --.. -.-- / -.. --- --.");
-  })
+  })   
   it('returns symbol for both upper and lower cases', ()=> {
     // Arrange
       let letter;
