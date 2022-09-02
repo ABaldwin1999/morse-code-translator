@@ -47,9 +47,9 @@ describe('Testing translateToMorse', () => {
       let word;
     // Act
       word = "a new little dog.";
-      translation= translateToMorse(letter);
+      translation= translateToMorse(word);
     // Assert
-    expect(translation).toBe(".-");
+    expect(translation).toBe(".- / -. . .-- / .-.. .. - - .-.. . / -.. --- --. .-.-.-");
   })
 
  })
