@@ -25,16 +25,29 @@ const morse=[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",
 export const translateToEnglish =(message)=>{
     const wordArray = message.split(' / ');
     const sentenceArray =[];
+    let valid =true;
     wordArray.forEach((word) => {
         const letterArray = word.split(' ');
         if(sentenceArray.length >0){
             sentenceArray.push(' ');
         }
         letterArray.forEach((letter) =>{
-            sentenceArray.push(latin[morse.indexOf(letter.toUpperCase())]);
+            if(morse.includes(letter)){
+                let thisLetter =latin[morse.indexOf(letter)];
+                sentenceArray.push(thisLetter.toLowerCase());
+            }
+            else{
+                valid = false;
+            }
         })
     });
-    return sentenceArray.join('');
+    if(valid){
+        return sentenceArray.join('');
+    }
+    else{
+        return "Invalid input";
+    }
+    
 }
 
 //getTranslation.addEventListener("click", translateToMorse);
