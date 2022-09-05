@@ -23,6 +23,7 @@ var addSpacing = function addSpacing(sentenceArray, space) {
 
 var translateToMorse = function translateToMorse(getInput) {
   var wordArray = getInput;
+  console.log(wordArray);
   var sentenceArray = [];
   var valid = true;
   wordArray.forEach(function (word) {

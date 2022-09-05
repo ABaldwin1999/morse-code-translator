@@ -1,5 +1,5 @@
-import { translateToEnglish } from "./translator";
-import { translateToMorse } from "./translator";
+import { translateToEnglish } from "./translator.js";
+import { translateToMorse } from "./translator.js";
 
 describe('Testing translateToMorse', () => {
   it('single letter returns corresponding symbol', ()=> {
@@ -8,7 +8,7 @@ describe('Testing translateToMorse', () => {
       let translation;
     // Act
       letter = "a";
-      translation= translateToMorse(letter);
+      translation= translateToMorse([letter]);
     // Assert
     expect(translation).toBe(".-");
   })
@@ -28,7 +28,7 @@ describe('Testing translateToMorse', () => {
       let translation;
     // Act
       sentence = "the quick brown fox jumps over the lazy dog";
-      translation= translateToMorse(sentence);
+      translation= translateToMorse([sentence]);
     // Assert
     expect(translation).toBe("- .... . / --.- ..- .. -.-. -.- / -... .-. --- .-- -. / ..-. --- -..- / .--- ..- -- .--. ... / --- ...- . .-. / - .... . / .-.. .- --.. -.-- / -.. --- --.");
   })   
@@ -38,7 +38,7 @@ describe('Testing translateToMorse', () => {
       let translation;
     // Act
       letter = "A";
-      translation= translateToMorse(letter);
+      translation= translateToMorse([letter]);
     // Assert
     expect(translation).toBe(".-");
   })
@@ -48,7 +48,7 @@ describe('Testing translateToMorse', () => {
       let word;
     // Act
       word = "a new little dog.";
-      translation= translateToMorse(word);
+      translation= translateToMorse([word]);
     // Assert
     expect(translation).toBe(".- / -. . .-- / .-.. .. - - .-.. . / -.. --- --. .-.-.-");
   })
@@ -61,7 +61,7 @@ describe('Testing translateToMorse', () => {
       let translation;
     // Act
       letter = ".-";
-      translation= translateToEnglish(letter);
+      translation= translateToEnglish([letter]);
     // Assert
     expect(translation).toBe("a");
   })
@@ -71,7 +71,7 @@ describe('Testing translateToMorse', () => {
       let translation;
     // Act
       word = "-.-. .- -";
-      translation= translateToEnglish(word);
+      translation= translateToEnglish([word]);
     // Assert
     expect(translation).toBe("cat");
   })
@@ -81,7 +81,7 @@ describe('Testing translateToMorse', () => {
       let translation;
     // Act
       sentence = "- .... . / --.- ..- .. -.-. -.- / -... .-. --- .-- -. / ..-. --- -..- / .--- ..- -- .--. ... / --- ...- . .-. / - .... . / .-.. .- --.. -.-- / -.. --- --.";
-      translation= translateToEnglish(sentence);
+      translation= translateToEnglish([sentence]);
     // Assert
     expect(translation).toBe("the quick brown fox jumps over the lazy dog");
   })   
@@ -91,7 +91,7 @@ describe('Testing translateToMorse', () => {
       let translation;
     // Act
       letter = "f/";
-      translation= translateToEnglish(letter);
+      translation= translateToEnglish([letter]);
     // Assert
     expect(translation).toBe("Invalid input");
   })
@@ -101,7 +101,7 @@ describe('Testing translateToMorse', () => {
       let word;
     // Act
       word = ".- / -. . .-- / .-.. .. - - .-.. . / -.. --- --. .-.-.-";
-      translation= translateToEnglish(word);
+      translation= translateToEnglish([word]);
     // Assert
     expect(translation).toBe("a new little dog.");
   })

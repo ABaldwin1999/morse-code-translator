@@ -1,6 +1,6 @@
 "use strict";
 
-var _translator = require("./translator");
+var _translator = require("./translator.js");
 
 describe('Testing translateToMorse', function () {
   it('single letter returns corresponding symbol', function () {
@@ -9,7 +9,7 @@ describe('Testing translateToMorse', function () {
     var translation; // Act
 
     letter = "a";
-    translation = (0, _translator.translateToMorse)(letter); // Assert
+    translation = (0, _translator.translateToMorse)([letter]); // Assert
 
     expect(translation).toBe(".-");
   });
@@ -29,7 +29,7 @@ describe('Testing translateToMorse', function () {
     var translation; // Act
 
     sentence = "the quick brown fox jumps over the lazy dog";
-    translation = (0, _translator.translateToMorse)(sentence); // Assert
+    translation = (0, _translator.translateToMorse)([sentence]); // Assert
 
     expect(translation).toBe("- .... . / --.- ..- .. -.-. -.- / -... .-. --- .-- -. / ..-. --- -..- / .--- ..- -- .--. ... / --- ...- . .-. / - .... . / .-.. .- --.. -.-- / -.. --- --.");
   });
@@ -39,7 +39,7 @@ describe('Testing translateToMorse', function () {
     var translation; // Act
 
     letter = "A";
-    translation = (0, _translator.translateToMorse)(letter); // Assert
+    translation = (0, _translator.translateToMorse)([letter]); // Assert
 
     expect(translation).toBe(".-");
   });
@@ -49,7 +49,7 @@ describe('Testing translateToMorse', function () {
     var word; // Act
 
     word = "a new little dog.";
-    translation = (0, _translator.translateToMorse)(word); // Assert
+    translation = (0, _translator.translateToMorse)([word]); // Assert
 
     expect(translation).toBe(".- / -. . .-- / .-.. .. - - .-.. . / -.. --- --. .-.-.-");
   });
@@ -61,7 +61,7 @@ describe('Testing translateToEnglish', function () {
     var translation; // Act
 
     letter = ".-";
-    translation = (0, _translator.translateToEnglish)(letter); // Assert
+    translation = (0, _translator.translateToEnglish)([letter]); // Assert
 
     expect(translation).toBe("a");
   });
@@ -71,7 +71,7 @@ describe('Testing translateToEnglish', function () {
     var translation; // Act
 
     word = "-.-. .- -";
-    translation = (0, _translator.translateToEnglish)(word); // Assert
+    translation = (0, _translator.translateToEnglish)([word]); // Assert
 
     expect(translation).toBe("cat");
   });
@@ -81,7 +81,7 @@ describe('Testing translateToEnglish', function () {
     var translation; // Act
 
     sentence = "- .... . / --.- ..- .. -.-. -.- / -... .-. --- .-- -. / ..-. --- -..- / .--- ..- -- .--. ... / --- ...- . .-. / - .... . / .-.. .- --.. -.-- / -.. --- --.";
-    translation = (0, _translator.translateToEnglish)(sentence); // Assert
+    translation = (0, _translator.translateToEnglish)([sentence]); // Assert
 
     expect(translation).toBe("the quick brown fox jumps over the lazy dog");
   });
@@ -91,7 +91,7 @@ describe('Testing translateToEnglish', function () {
     var translation; // Act
 
     letter = "f/";
-    translation = (0, _translator.translateToEnglish)(letter); // Assert
+    translation = (0, _translator.translateToEnglish)([letter]); // Assert
 
     expect(translation).toBe("Invalid input");
   });
@@ -101,7 +101,7 @@ describe('Testing translateToEnglish', function () {
     var word; // Act
 
     word = ".- / -. . .-- / .-.. .. - - .-.. . / -.. --- --. .-.-.-";
-    translation = (0, _translator.translateToEnglish)(word); // Assert
+    translation = (0, _translator.translateToEnglish)([word]); // Assert
 
     expect(translation).toBe("a new little dog.");
   });
