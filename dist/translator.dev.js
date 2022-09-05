@@ -18,17 +18,19 @@ var getOutput = function getOutput(valid, sentenceArray) {
   }
 };
 
+var addSpacing = function addSpacing(sentenceArray, space) {
+  if (sentenceArray.length > 0) {
+    sentenceArray.push(space);
+  }
+};
+
 var translateToMorse = function translateToMorse() {
   var wordArray = getInput(' ');
   var sentenceArray = [];
   var valid = true;
   wordArray.forEach(function (word) {
     var letterArray = word.split('');
-
-    if (sentenceArray.length > 0) {
-      sentenceArray.push(' / ');
-    }
-
+    addSpacing(sentenceArray, ' / ');
     letterArray.forEach(function (letter) {
       if (latin.includes(letter.toUpperCase())) {
         sentenceArray.push(morse[latin.indexOf(letter.toUpperCase())]);
@@ -50,11 +52,7 @@ var translateToEnglish = function translateToEnglish() {
   var valid = true;
   wordArray.forEach(function (word) {
     var letterArray = word.split(' ');
-
-    if (sentenceArray.length > 0) {
-      sentenceArray.push(' ');
-    }
-
+    addSpacing(sentenceArray, ' ');
     letterArray.forEach(function (letter) {
       if (morse.includes(letter)) {
         var thisLetter = latin[morse.indexOf(letter)];

@@ -19,15 +19,19 @@ const morse=[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",
     }
  }
 
+ const addSpacing = (sentenceArray, space) =>{
+    if(sentenceArray.length >0){
+        sentenceArray.push(space);
+    }
+ }
+
  const translateToMorse =()=>{
      const wordArray = getInput(' ');
      const sentenceArray =[];
      let valid = true;
      wordArray.forEach((word) => {
          const letterArray = word.split('');
-         if(sentenceArray.length >0){
-             sentenceArray.push(' / ');
-         }
+         addSpacing(sentenceArray,' / ');
          letterArray.forEach((letter) =>{
             if(latin.includes(letter.toUpperCase())){
                 sentenceArray.push(morse[latin.indexOf(letter.toUpperCase())]);
@@ -49,9 +53,7 @@ const morse=[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",
     let valid =true;
     wordArray.forEach((word) => {
         const letterArray = word.split(' ');
-        if(sentenceArray.length >0){
-            sentenceArray.push(' ');
-        }
+        addSpacing(sentenceArray,' ');
         letterArray.forEach((letter) =>{
             if(morse.includes(letter)){
                 let thisLetter =latin[morse.indexOf(letter)];
