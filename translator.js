@@ -18,6 +18,7 @@ const morse=[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",
 
 export const translateToMorse =(getInput)=>{
      const wordArray = getInput;
+     console.log(wordArray);
      const sentenceArray =[];
      let valid = true;
      wordArray.forEach((word) => {
