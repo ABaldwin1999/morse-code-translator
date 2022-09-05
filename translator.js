@@ -1,29 +1,50 @@
 const latin =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",".",",","!","?"];
 const morse=[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--..",".-.-.-","--..--","-.-.--","..--.."]
 
-// const getTranslation = document.querySelector('.getTranslation');
-// const theTranslation = document.querySelector('.theTranslation');
+ const getTranslation0 = document.querySelector('.getTranslation0');
+ const getTranslation1 = document.querySelector('.getTranslation1');
+ const theTranslation = document.querySelector('.theTranslation');
 
-// const translateToMorse =()=>{
-//     const wordArray = document.getElementById("message").value.split(' ');
-//     const sentenceArray =[];
-//     wordArray.forEach((word) => {
-//         const letterArray = word.split('');
-//         if(sentenceArray.length >0){
-//             sentenceArray.push(' / ');
-//         }
-//         letterArray.forEach((letter) =>{
-//             sentenceArray.push(morse[latin.indexOf(letter.toUpperCase())]);
-//             if((letterArray.indexOf(letter) != letterArray.length -1)){
-//                 sentenceArray.push(' ');
-//             }
-//         })
-//     });
-//     theTranslation.innerHTML = sentenceArray.join('');
-//}
+ // function gets user input and splits in up into individual words
+ const getInput = (splitValue) =>{
+    return document.getElementById("message").value.split(splitValue);
+ }
 
-export const translateToEnglish =(message)=>{
-    const wordArray = message.split(' / ');
+ const getOutput = (valid, sentenceArray)=>{
+    if(valid){
+        theTranslation.innerHTML = sentenceArray.join('');
+    }
+    else{
+        theTranslation.innerHTML = "Invalid input";
+    }
+ }
+
+ const translateToMorse =()=>{
+     const wordArray = getInput(' ');
+     const sentenceArray =[];
+     let valid = true;
+     wordArray.forEach((word) => {
+         const letterArray = word.split('');
+         if(sentenceArray.length >0){
+             sentenceArray.push(' / ');
+         }
+         letterArray.forEach((letter) =>{
+            if(latin.includes(letter)){
+                sentenceArray.push(morse[latin.indexOf(letter.toUpperCase())]);
+                if((letterArray.indexOf(letter) != letterArray.length -1)){
+                    sentenceArray.push(' ');
+                }
+            }
+            else{
+                valid = false;
+            }
+         })
+     });
+     getOutput(valid, sentenceArray);   
+}
+
+ const translateToEnglish =()=>{
+    const wordArray = getInput(' / ');
     const sentenceArray =[];
     let valid =true;
     wordArray.forEach((word) => {
@@ -41,13 +62,9 @@ export const translateToEnglish =(message)=>{
             }
         })
     });
-    if(valid){
-        return sentenceArray.join('');
-    }
-    else{
-        return "Invalid input";
-    }
-    
+    getOutput(valid, sentenceArray);   
 }
 
-//getTranslation.addEventListener("click", translateToMorse);
+getTranslation0.addEventListener("click", translateToMorse);
+
+getTranslation1.addEventListener("click", translateToEnglish);
