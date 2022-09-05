@@ -1,21 +1,12 @@
 const latin =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",".",",","!","?"];
 const morse=[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--..",".-.-.-","--..--","-.-.--","..--.."]
 
- const getTranslation0 = document.querySelector('.getTranslation0');
- const getTranslation1 = document.querySelector('.getTranslation1');
- const theTranslation = document.querySelector('.theTranslation');
-
- // function gets user input and splits in up into individual words
- const getInput = (splitValue) =>{
-    return document.getElementById("message").value.split(splitValue);
- }
-
  const getOutput = (valid, sentenceArray)=>{
     if(valid){
-        theTranslation.innerHTML = sentenceArray.join('');
+        return sentenceArray.join('');
     }
     else{
-        theTranslation.innerHTML = "Invalid input";
+        return "Invalid input";
     }
  }
 
@@ -25,8 +16,8 @@ const morse=[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",
     }
  }
 
- const translateToMorse =()=>{
-     const wordArray = getInput(' ');
+export const translateToMorse =(getInput)=>{
+     const wordArray = getInput;
      const sentenceArray =[];
      let valid = true;
      wordArray.forEach((word) => {
@@ -44,16 +35,16 @@ const morse=[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",
             }
          })
      });
-     getOutput(valid, sentenceArray);
+    return getOutput(valid, sentenceArray);
 }
 
- const translateToEnglish =()=>{
-    const wordArray = getInput(' / ');
+export const translateToEnglish =(getInput)=>{
+    const wordArray = getInput;
     const sentenceArray =[];
     let valid =true;
     wordArray.forEach((word) => {
         const letterArray = word.split(' ');
-        addSpacing(sentenceArray,' ');
+        addSpacing(sentenceArray,' / ');
         letterArray.forEach((letter) =>{
             if(morse.includes(letter)){
                 let thisLetter =latin[morse.indexOf(letter)];
@@ -64,9 +55,5 @@ const morse=[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",
             }
         })
     });
-    getOutput(valid, sentenceArray);   
+    return getOutput(valid, sentenceArray);   
 }
-
-getTranslation0.addEventListener("click", translateToMorse);
-
-getTranslation1.addEventListener("click", translateToEnglish);
