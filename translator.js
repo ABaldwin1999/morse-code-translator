@@ -44,7 +44,7 @@ export const translateToEnglish =(getInput)=>{
     let valid =true;
     wordArray.forEach((word) => {
         const letterArray = word.split(' ');
-        addSpacing(sentenceArray,' / ');
+        addSpacing(sentenceArray,' ');
         letterArray.forEach((letter) =>{
             if(morse.includes(letter)){
                 let thisLetter =latin[morse.indexOf(letter)];

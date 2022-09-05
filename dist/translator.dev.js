@@ -51,7 +51,7 @@ var translateToEnglish = function translateToEnglish(getInput) {
   var valid = true;
   wordArray.forEach(function (word) {
     var letterArray = word.split(' ');
-    addSpacing(sentenceArray, ' / ');
+    addSpacing(sentenceArray, ' ');
     letterArray.forEach(function (letter) {
       if (morse.includes(letter)) {
         var thisLetter = latin[morse.indexOf(letter)];
