@@ -29,7 +29,7 @@ const morse=[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",
              sentenceArray.push(' / ');
          }
          letterArray.forEach((letter) =>{
-            if(latin.includes(letter)){
+            if(latin.includes(letter.toUpperCase())){
                 sentenceArray.push(morse[latin.indexOf(letter.toUpperCase())]);
                 if((letterArray.indexOf(letter) != letterArray.length -1)){
                     sentenceArray.push(' ');
@@ -40,7 +40,7 @@ const morse=[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",
             }
          })
      });
-     getOutput(valid, sentenceArray);   
+     getOutput(valid, sentenceArray);
 }
 
  const translateToEnglish =()=>{

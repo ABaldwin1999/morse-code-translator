@@ -30,7 +30,7 @@ var translateToMorse = function translateToMorse() {
     }
 
     letterArray.forEach(function (letter) {
-      if (latin.includes(letter)) {
+      if (latin.includes(letter.toUpperCase())) {
         sentenceArray.push(morse[latin.indexOf(letter.toUpperCase())]);
 
         if (letterArray.indexOf(letter) != letterArray.length - 1) {
