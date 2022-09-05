@@ -17,7 +17,7 @@ describe('Testing translateToMorse', () => {
       let word;
       let translation;
     // Act
-      word = "cat";
+      word = ["cat"];
       translation= translateToMorse(word);
     // Assert
     expect(translation).toBe("-.-. .- -");
@@ -27,8 +27,8 @@ describe('Testing translateToMorse', () => {
       let sentence;
       let translation;
     // Act
-      sentence = "the quick brown fox jumps over the lazy dog";
-      translation= translateToMorse([sentence]);
+      sentence = ["the", "quick", "brown", "fox", "jumps","over", "the", "lazy", "dog"];
+      translation= translateToMorse(sentence);
     // Assert
     expect(translation).toBe("- .... . / --.- ..- .. -.-. -.- / -... .-. --- .-- -. / ..-. --- -..- / .--- ..- -- .--. ... / --- ...- . .-. / - .... . / .-.. .- --.. -.-- / -.. --- --.");
   })   
@@ -47,8 +47,8 @@ describe('Testing translateToMorse', () => {
     let translation;
       let word;
     // Act
-      word = "a new little dog.";
-      translation= translateToMorse([word]);
+      word = ["a", "new" ,"little" ,"dog."];
+      translation= translateToMorse(word);
     // Assert
     expect(translation).toBe(".- / -. . .-- / .-.. .. - - .-.. . / -.. --- --. .-.-.-");
   })
@@ -80,8 +80,8 @@ describe('Testing translateToMorse', () => {
       let sentence;
       let translation;
     // Act
-      sentence = "- .... . / --.- ..- .. -.-. -.- / -... .-. --- .-- -. / ..-. --- -..- / .--- ..- -- .--. ... / --- ...- . .-. / - .... . / .-.. .- --.. -.-- / -.. --- --.";
-      translation= translateToEnglish([sentence]);
+      sentence = ["- .... .", "--.- ..- .. -.-. -.-","-... .-. --- .-- -." ,"..-. --- -..-",".--- ..- -- .--. ..." , "--- ...- . .-.","- .... ." ,".-.. .- --.. -.--", "-.. --- --."];
+      translation= translateToEnglish(sentence);
     // Assert
     expect(translation).toBe("the quick brown fox jumps over the lazy dog");
   })   
@@ -100,8 +100,8 @@ describe('Testing translateToMorse', () => {
     let translation;
       let word;
     // Act
-      word = ".- / -. . .-- / .-.. .. - - .-.. . / -.. --- --. .-.-.-";
-      translation= translateToEnglish([word]);
+      word = [".-", "-. . .--", ".-.. .. - - .-.. ." ,"-.. --- --. .-.-.-"];
+      translation= translateToEnglish(word);
     // Assert
     expect(translation).toBe("a new little dog.");
   })

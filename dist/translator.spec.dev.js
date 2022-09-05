@@ -18,7 +18,7 @@ describe('Testing translateToMorse', function () {
     var word;
     var translation; // Act
 
-    word = "cat";
+    word = ["cat"];
     translation = (0, _translator.translateToMorse)(word); // Assert
 
     expect(translation).toBe("-.-. .- -");
@@ -28,8 +28,8 @@ describe('Testing translateToMorse', function () {
     var sentence;
     var translation; // Act
 
-    sentence = "the quick brown fox jumps over the lazy dog";
-    translation = (0, _translator.translateToMorse)([sentence]); // Assert
+    sentence = ["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"];
+    translation = (0, _translator.translateToMorse)(sentence); // Assert
 
     expect(translation).toBe("- .... . / --.- ..- .. -.-. -.- / -... .-. --- .-- -. / ..-. --- -..- / .--- ..- -- .--. ... / --- ...- . .-. / - .... . / .-.. .- --.. -.-- / -.. --- --.");
   });
@@ -48,8 +48,8 @@ describe('Testing translateToMorse', function () {
     var translation;
     var word; // Act
 
-    word = "a new little dog.";
-    translation = (0, _translator.translateToMorse)([word]); // Assert
+    word = ["a", "new", "little", "dog."];
+    translation = (0, _translator.translateToMorse)(word); // Assert
 
     expect(translation).toBe(".- / -. . .-- / .-.. .. - - .-.. . / -.. --- --. .-.-.-");
   });
@@ -80,8 +80,8 @@ describe('Testing translateToEnglish', function () {
     var sentence;
     var translation; // Act
 
-    sentence = "- .... . / --.- ..- .. -.-. -.- / -... .-. --- .-- -. / ..-. --- -..- / .--- ..- -- .--. ... / --- ...- . .-. / - .... . / .-.. .- --.. -.-- / -.. --- --.";
-    translation = (0, _translator.translateToEnglish)([sentence]); // Assert
+    sentence = ["- .... .", "--.- ..- .. -.-. -.-", "-... .-. --- .-- -.", "..-. --- -..-", ".--- ..- -- .--. ...", "--- ...- . .-.", "- .... .", ".-.. .- --.. -.--", "-.. --- --."];
+    translation = (0, _translator.translateToEnglish)(sentence); // Assert
 
     expect(translation).toBe("the quick brown fox jumps over the lazy dog");
   });
@@ -100,8 +100,8 @@ describe('Testing translateToEnglish', function () {
     var translation;
     var word; // Act
 
-    word = ".- / -. . .-- / .-.. .. - - .-.. . / -.. --- --. .-.-.-";
-    translation = (0, _translator.translateToEnglish)([word]); // Assert
+    word = [".-", "-. . .--", ".-.. .. - - .-.. .", "-.. --- --. .-.-.-"];
+    translation = (0, _translator.translateToEnglish)(word); // Assert
 
     expect(translation).toBe("a new little dog.");
   });
